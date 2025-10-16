@@ -1,7 +1,10 @@
 <template>
-	<view>
-		<image class="logo" src="/static/logo.png"></image>
-		<text class="title">{{title}}</text>
+	<!-- 使用Tailwind实用类: 居中布局与间距 -->
+	<view class="flex m-2 items-center justify-center" style="height: 100%">
+		<view class="flex items-center flex-col">
+			<image class="logo mb-4" src="/static/logo.png"></image>
+			<text class="title text-gray-500 text-base text-center">{{title}}</text>
+		</view>
 	</view>
 </template>
 
@@ -21,16 +24,7 @@
 	}
 </script>
 
-<style>
-	.logo {
-		height: 100px;
-		width: 100px;
-		margin: 100px auto 25px auto;
-	}
 
-	.title {
-		font-size: 18px;
-		color: #8f8f94;
-    text-align: center;
-	}
+<style>
+	/* 文字样式交由text上的Tailwind类控制 */
 </style>
