@@ -1,30 +1,25 @@
 <template>
-	<!-- 使用Tailwind实用类: 居中布局与间距 -->
-	<view class="flex m-2 items-center justify-center" style="height: 100%">
-		<view class="flex items-center flex-col">
-			<image class="logo mb-4" src="/static/logo.png"></image>
-			<text class="title text-gray-500 text-base text-center">{{title}}</text>
-		</view>
-	</view>
+  <!-- 使用Tailwind实用类: 居中布局与间距 -->
+  <view class="flex m-2 items-center justify-center" style="height: 100%">
+    <view class="flex items-center flex-col">
+      <image class="logo mb-4" src="/static/logo.png"></image>
+      <text class="title text-gray-500 text-base text-center">{{ title }}</text>
+    </view>
+  </view>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
-
-		},
-		methods: {
-
-		}
-	}
+export default {
+  data() {
+    return {
+      title: "hello world",
+    };
+  },
+  onLoad() {},
+  methods: {},
+};
 </script>
 
-
 <style>
-	/* 文字样式交由text上的Tailwind类控制 */
+/* 文字样式交由text上的Tailwind类控制 */
 </style>
