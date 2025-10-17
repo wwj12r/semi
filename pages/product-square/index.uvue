@@ -1,0 +1,83 @@
+<template>
+  <scroll-view style="flex: 1" class="bg-gray-50" scroll-y="true">
+    <view class="px-3 py-3">
+      <!-- 顶部分类 Tab -->
+      <head-tab :tabs="tabs" @tab="onTab" />
+
+      <!-- 两列卡片 -->
+      <view class="flex flex-row flex-wrap">
+        <view v-for="item in items" :key="item.id" class="w-1/2 p-1.5">
+          <view class="bg-white rounded-lg overflow-hidden">
+            <image
+              :src="item.cover"
+              mode="aspectFill"
+              class="w-full"
+              style="height: 160px"
+            />
+            <view class="px-3 py-2">
+              <text class="text-sm text-gray-900">{{ item.title }}</text>
+            </view>
+            <view class="flex flex-row items-center justify-between px-3 pb-3">
+              <view class="flex flex-row items-center">
+                <image
+                  :src="item.avatar"
+                  class="rounded-full"
+                  style="width: 20px; height: 20px"
+                />
+                <text class="text-xs text-gray-500 ml-2">{{
+                  item.author
+                }}</text>
+              </view>
+              <view class="flex flex-row items-center">
+                <text class="text-xs text-gray-500">{{ item.likes }}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</template>
+
+<script lang="uts">
+type FeedItem = {
+  id: number;
+  cover: string;
+  avatar: string;
+  author: string;
+  title: string;
+  likes: number;
+};
+
+export default {
+  data() {
+    const demoCover: string = "/static/logo.png";
+    const demoAvatar: string = "/static/logo.png";
+    const list: FeedItem[] = [];
+    for (let i = 0; i < 12; i++) {
+      list.push({
+        id: i + 1,
+        cover: demoCover,
+        avatar: demoAvatar,
+        author: "作者" + (i + 1),
+        title: "示例内容 " + (i + 1),
+        likes: 1000 + i,
+      });
+    }
+    return {
+      activeTab: 0,
+      tabs: ["最新", "热门", "活动", "创意", "共创"],
+      items: list,
+    };
+  },
+  methods: {
+    onTab(idx: number) {
+      console.log(idx);
+    },
+  },
+};
+</script>
+
+<style>
+/* 页面主要通过Tailwind类名控制，无额外样式 */
+</style>

@@ -1,13 +1,17 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://doc.dcloud.net.cn/uni-app-x/collocation/pagesjson.html
-		{
-			"path": "pages/index/index"
-		}
-	],
-	"globalStyle": {
-		"hideStatusBar": true,
-		"backgroundColor": "#F8F8F8",
-		"navigationStyle": "custom"
-	},
-	"uniIdRouter": {}
+  "pages": [
+    //pages数组中第一项表示应用启动页，参考：https://doc.dcloud.net.cn/uni-app-x/collocation/pagesjson.html
+    {
+      "path": "pages/product-square/index"
+    },
+    {
+      "path": "pages/index/index"
+    }
+  ],
+  "globalStyle": {
+    "hideStatusBar": true,
+    "backgroundColor": "#F8F8F8",
+    "navigationStyle": "custom"
+  },
+  "uniIdRouter": {}
 }
