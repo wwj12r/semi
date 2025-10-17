@@ -1,0 +1,39 @@
+<template>
+  <view class="rounded-lg overflow-hidden pb-3 mb-2">
+    <!-- 1:2 宽高比封面区域 -->
+    <view class="relative w-full" style="height: 0; padding-bottom: 122%">
+      <image
+        :src="props.cover"
+        mode="aspectFill"
+        class="absolute left-0 top-0 w-full h-full rounded-lg"
+      />
+    </view>
+    <view class="py-3">
+      <text class="text-base text-[#1A1A1A]">{{ props.title }}</text>
+    </view>
+    <view class="flex flex-row items-center justify-between">
+      <view class="flex flex-row items-center">
+        <image
+          :src="props.avatar"
+          class="rounded-full"
+          style="width: 20px; height: 20px"
+        />
+        <text class="text-xs text-[#666] ml-2">{{ props.author }}</text>
+      </view>
+      <view class="flex flex-row items-center">
+        <uni-icons type="hand-up" size="20"></uni-icons>
+        <text class="text-xs text-[#1A1A1A]">{{ props.likes }}</text>
+      </view>
+    </view>
+  </view>
+</template>
+<script lang="uts" setup>
+type ProductCardProps = {
+  cover: string;
+  avatar: string;
+  author: string;
+  title: string;
+  likes: number;
+};
+const props = defineProps<ProductCardProps>();
+</script>

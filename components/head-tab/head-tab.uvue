@@ -1,13 +1,16 @@
 <template>
-  <view class="flex flex-row items-end gap-5 mb-3 h-[24px]">
+  <view
+    class="flex flex-row items-end gap-3 mb-3 h-[24px]"
+    :class="props.class"
+  >
     <text
       v-for="(t, idx) in tabs"
       :key="t"
-      class="transition-all duration-300"
+      class="transition-all duration-300 font-bold"
       :class="
         idx == activeTab
-          ? 'text-gray-900 text-[20px] font-bold'
-          : 'text-gray-500 text-[16px]'
+          ? 'text-[#1A1A1A] text-[20px]'
+          : 'text-[#999] text-[16px]'
       "
       @click="onTab(idx)"
     >
@@ -23,6 +26,7 @@ const emit = defineEmits<{
 
 const props = defineProps<{
   tabs: string[];
+  class: string;
 }>();
 
 const activeTab = ref(0);

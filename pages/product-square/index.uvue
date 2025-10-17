@@ -1,42 +1,30 @@
 <template>
-  <scroll-view style="flex: 1" class="bg-gray-50" scroll-y="true">
-    <view class="px-3 py-3">
-      <!-- 顶部分类 Tab -->
-      <head-tab :tabs="tabs" @tab="onTab" />
-
-      <!-- 两列卡片 -->
-      <view class="flex flex-row flex-wrap">
-        <view v-for="item in items" :key="item.id" class="w-1/2 p-1.5">
-          <view class="bg-white rounded-lg overflow-hidden">
-            <image
-              :src="item.cover"
-              mode="aspectFill"
-              class="w-full"
-              style="height: 160px"
-            />
-            <view class="px-3 py-2">
-              <text class="text-sm text-gray-900">{{ item.title }}</text>
-            </view>
-            <view class="flex flex-row items-center justify-between px-3 pb-3">
-              <view class="flex flex-row items-center">
-                <image
-                  :src="item.avatar"
-                  class="rounded-full"
-                  style="width: 20px; height: 20px"
-                />
-                <text class="text-xs text-gray-500 ml-2">{{
-                  item.author
-                }}</text>
-              </view>
-              <view class="flex flex-row items-center">
-                <text class="text-xs text-gray-500">{{ item.likes }}</text>
-              </view>
-            </view>
-          </view>
+  <view class="flex flex-col h-full pb-3">
+    <!-- 顶部分类 Tab -->
+    <view class="p-3">
+      <head-tab :tabs="tabs" @tab="onTab" class="flex-shrink-0" />
+    </view>
+    <scroll-view
+      style="flex: 1"
+      class="bg-gray-50 flex-1 border-none"
+      scroll-y="true"
+    >
+      <view class="px-3">
+        <!-- 两列卡片 -->
+        <view class="grid grid-cols-2 gap-3">
+          <product-card
+            v-for="item in items"
+            :key="item.id"
+            :cover="item.cover"
+            :avatar="item.avatar"
+            :author="item.author"
+            :title="item.title"
+            :likes="item.likes"
+          />
         </view>
       </view>
-    </view>
-  </scroll-view>
+    </scroll-view>
+  </view>
 </template>
 
 <script lang="uts">
